@@ -1,50 +1,162 @@
-*{
-    margin: 0;
-    padding: 0;
-}
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-.navbar ul {
-    list-style: none;
-    padding: 0;
-    background: #333;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-}
-.navbar ul li {
-    margin: 0 15px;
-}
-.navbar ul li a {
-    text-decoration: none;
-    color: #fff;
-    padding: 10px 20px;
-    display: block;
-}
-.navbar ul li a:hover {
-    background: #555;
-    color: #fff;
-    transition: background 0.3s ease;
-}
-.hero {
-    background: url('images/hero.jpg') no-repeat center center/cover;
-    color: #fff;
-    text-align: center;
-    padding: 100px 20px;
-}
-.cta {
-    display: inline-block;
-    background: #e67e22;
-    color: #fff;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-}
-.cta:hover {
-    background: #d35400;
-}
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background: #333;
+            padding: 10px 20px;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .navbar ul li {
+            position: relative;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: #fff;
+            padding: 10px 15px;
+            display: block;
+        }
+
+        .navbar ul li a:hover {
+            background: #555;
+            transition: background 0.3s ease;
+        }
+
+        /* Dropdown Styles */
+        .navbar ul li ul.dropdown {
+            display: none;
+            position: absolute;
+            background: #444;
+            min-width: 160px;
+            z-index: 999;
+        }
+
+        .navbar ul li:hover ul.dropdown {
+            display: block;
+        }
+
+        .navbar ul li ul.dropdown li {
+            width: 100%;
+        }
+
+        .navbar ul li ul.dropdown li a {
+            padding: 10px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+        }
+
+        /* Slideshow */
+        .slideshow {
+            position: relative;
+            max-width: 100%;
+            overflow: hidden;
+        }
+
+        .slides {
+            display: none;
+            position: relative;
+            text-align: center;
+            color: white;
+        }
+
+        .slides img {
+            width: 100%;
+            height: auto;
+        }
+
+        .text-overlay {
+            position: absolute;
+            bottom: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        footer .social-icons a {
+            color: #fff;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        footer .social-icons a:hover {
+            color: #bbb;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar ul {
+                flex-direction: column;
+            }
+
+            .navbar ul li {
+                width: 100%;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 0.9rem;
+            }
+
+            .navbar ul {
+                flex-direction: column;
+            }
+
+            .navbar ul li {
+                width: 100%;
+                text-align: center;
+            }
+        }

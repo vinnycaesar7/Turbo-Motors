@@ -1,27 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./home.css">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
+
+</head>
+
 <body>
-    <nav class="navbar">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="inventory.html">Inventory</a></li>
-            <li><a href="service.html">Service</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="shop.html">Shop</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="#">Add to Cart</a></li>
-        </ul>
-    </nav>
-        <header class="hero">
-            <h1>Welcome to Our Car Dealership</h1>
-            <p>Find your dream car today!</p>
-            <a href="inventory.html" class="cta">Browse Inventory</a>
-        </header>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="home.html"><i class="fas fa-home"></i> Home</a></li>
+                <li>
+                    <a href="inventory.html"><i class="fas fa-car"></i> Inventory <i class="fas fa-caret-down"></i></a>
+                    <ul class="dropdown">
+                        <li><a href="new-model.html"><i class="fas fa-car-side"></i> New Model</a></li>
+                        <li><a href="old-model.html"><i class="fas fa-car-crash"></i> Old Model</a></li>
+                        <li><a href="used-model.html"><i class="fas fa-car-battery"></i> Used Model</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                <li><a href="add.html"><i class="fas fa-cart-plus"></i> Added items</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Welcome to Turbo Motors</h1>
+        <p>Find your dream car today!</p>
+    </section>
+
+    <!-- Slideshow Section -->
+    <section class="slideshow">
+        <div class="slides">
+            <img src="./Other car images/Lamborghini.jpg" alt="New Arrivals">
+            <div class="text-overlay">Discover the Latest Models</div>
+        </div>
+        <div class="slides">
+            <img src="./Other car images/_LaMbOrGhInI3_.jpg" alt="Special Offers">
+            <div class="text-overlay">Amazing Deals Await You</div>
+        </div>
+        <div class="slides">
+            <img src="./Other car images/slid rolls.jpg" alt="Test Drive">
+            <div class="text-overlay">Book a Test Drive Today</div>
+        </div>
+    </section>
+
+
+
+
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 Turbo Motors. All rights reserved.</p>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
 </body>
+
 </html>
