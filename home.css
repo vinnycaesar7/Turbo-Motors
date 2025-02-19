@@ -161,10 +161,6 @@ footer .social-icons a:hover {
 
 
 
-
-
-
-
 /* Slideshow Styles */
 .slideshow {
     position: relative;
@@ -175,7 +171,7 @@ footer .social-icons a:hover {
 .slides {
     display: none;
     position: relative;
-    text-align: right; /* Aligns text to the right */
+    text-align: right;
     color: white;
 }
 
@@ -189,23 +185,23 @@ footer .social-icons a:hover {
 .text-overlay {
     position: absolute;
     top: 50%;
-    right: 5%; 
+    right: 5%;
     transform: translateY(-50%);
     font-size: 2.5rem;
     text-align: right;
     font-weight: bold;
     max-width: 40%;
-    background: rgba(0, 0, 0, 0.6); 
+    background: rgba(0, 0, 0, 0.6);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    font-family: "Orbitron", sans-serif; 
+    font-family: "Orbitron", sans-serif;
 }
 
 .text-overlay h1 {
     font-size: 2rem;
     margin-bottom: 10px;
-    color: #00ffcc; /* Neon blue-green */
+    color: #00ffcc;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
@@ -264,5 +260,120 @@ footer .social-icons a:hover {
 
     .text-overlay p {
         font-size: 0.8rem;
+    }
+}
+
+/* Info Section - Image on Left, Text on Right */
+.info-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 50px;
+    background-color: #111; /* Dark background for premium feel */
+    color: white;
+}
+
+/* Image Styling */
+.image-container {
+    flex: 1;
+    max-width: 50%;
+    padding-right: 20px;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.2);
+}
+
+/* Text Section */
+.text-info {
+    flex: 1;
+    max-width: 45%;
+    text-align: right;
+    font-family: "Orbitron", sans-serif;
+}
+
+.text-info h1 {
+    font-size: 2.5rem;
+    color: #00ffcc; /* Futuristic neon blue-green */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.text-info p {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.text-info h2 {
+    font-size: 1.8rem;
+    color: #ffcc00;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+/* List Styling */
+.text-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.text-info ul li {
+    font-size: 1.1rem;
+    margin: 8px 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.text-info ul li i {
+    margin-left: 10px;
+    color: #00ffcc;
+}
+
+/* Call-to-Action Button */
+.btn-learn {
+    display: inline-block;
+    padding: 12px 24px;
+    background: #00ffcc;
+    color: #000;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s ease-in-out;
+    margin-top: 15px;
+}
+
+.btn-learn:hover {
+    background: #008f7a;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .info-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .image-container {
+        max-width: 100%;
+        padding-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .text-info {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .text-info ul li {
+        justify-content: center;
     }
 }
