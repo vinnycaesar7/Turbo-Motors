@@ -143,7 +143,104 @@ body {
 
 
 
-/* Base Info Section */
+/* Slideshow Styles */
+.slideshow {
+    position: relative;
+    scroll-behavior: smooth;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.slides {
+    display: none;
+    position: relative;
+    text-align: right;
+    color: white;
+}
+
+.slides img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Centered Text Overlay */
+.text-overlay {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.5rem;
+    font-weight: bold;
+    max-width: 60%;
+    text-align: center;
+    padding: 20px;
+    font-family: "Orbitron", sans-serif;
+}
+
+.text-overlay h1 {
+    font-size: 2.5rem;
+    font-weight: bolder;
+    font-size: 60px;
+    margin-bottom: 10px;
+    color: #00ffcc;
+    text-transform: uppercase;
+}
+
+.text-overlay p {
+    font-size: 1.2rem;
+    color: #ffffff;
+    margin: 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .text-overlay {
+        font-size: 2rem;
+        max-width: 70%;
+    }
+
+    .text-overlay h1 {
+        font-size: 1.8rem;
+    }
+
+    .text-overlay p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .text-overlay {
+        font-size: 1.5rem;
+        max-width: 80%;
+    }
+
+    .text-overlay h1 {
+        font-size: 1.5rem;
+    }
+
+    .text-overlay p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .text-overlay {
+        font-size: 1.2rem;
+        max-width: 90%;
+    }
+
+    .text-overlay h1 {
+        font-size: 1.2rem;
+    }
+
+    .text-overlay p {
+        font-size: 0.8rem;
+    }
+}
+
+
+/* Info Section */
 .info-section {
     display: flex;
     align-items: center;
@@ -153,57 +250,36 @@ body {
     padding: 50px;
     background-color: #111;
     color: white;
-    overflow: hidden;
 }
 
-/* Image Animation */
+/* Image Styling */
 .image-container {
     flex: 1;
     max-width: 50%;
     padding-right: 20px;
     opacity: 0;
     transform: translateX(-100%);
-    animation: slideInImage 1.2s ease-out forwards;
-    animation-delay: 0.3s;
+    transition: all 0.8s ease-in-out;
 }
 
-@keyframes slideInImage {
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
+.image-container.show {
+    opacity: 1;
+    transform: translateX(0);
 }
 
-/* Image Hover Zoom */
 .image-container img {
     width: 100%;
     height: auto;
     border-radius: 15px;
     box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.2);
-    transition: transform 0.5s ease;
 }
 
-.image-container img:hover {
-    transform: scale(1.05);
-}
-
-/* Text Section Animation */
+/* Text Section */
 .text-info {
     flex: 1;
     max-width: 45%;
     text-align: right;
     font-family: "Orbitron", sans-serif;
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInText 1.5s ease forwards;
-    animation-delay: 0.6s;
-}
-
-@keyframes fadeInText {
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
 }
 
 .text-info h1 {
@@ -238,16 +314,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    transition: color 0.3s ease;
 }
 
 .text-info ul li i {
     margin-left: 10px;
-    color: #00ffcc;
-}
-
-/* List Hover Effect */
-.text-info ul li:hover {
     color: #00ffcc;
 }
 
@@ -262,13 +332,12 @@ body {
     text-transform: uppercase;
     border-radius: 5px;
     text-decoration: none;
-    transition: background 0.3s ease-in-out, transform 0.3s ease;
+    transition: background 0.3s ease-in-out;
     margin-top: 15px;
 }
 
 .btn-learn:hover {
     background: #008f7a;
-    transform: scale(1.1);
 }
 
 /* Responsive Design */
@@ -299,38 +368,49 @@ body {
 .classic-footer {
     background-color: #111;
     color: #fff;
-    padding: 40px 20px 20px;
     font-family: "Orbitron", sans-serif;
-    border-top: 4px solid #00ffcc;
+    padding: 40px 20px;
 }
 
 /* Footer Container */
 .footer-container {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
-    gap: 30px;
+    flex-wrap: wrap;
     max-width: 1200px;
     margin: 0 auto;
+    border-bottom: 1px solid #444;
+    padding-bottom: 20px;
 }
 
 /* Footer Sections */
 .footer-section {
     flex: 1;
     min-width: 220px;
+    margin: 20px;
 }
 
-.footer-section h3, .footer-section h4 {
+.footer-section h3,
+.footer-section h4 {
     color: #00ffcc;
     margin-bottom: 15px;
     text-transform: uppercase;
 }
 
-.footer-section p, .footer-section li, .footer-bottom p {
-    font-size: 0.9rem;
+.footer-section p,
+.footer-section li,
+.footer-section a {
+    font-size: 0.95rem;
+    color: #ccc;
+    text-decoration: none;
     line-height: 1.6;
 }
 
+.footer-section a:hover {
+    color: #00ffcc;
+}
+
+/* Quick Links & Hours */
 .footer-section ul {
     list-style: none;
     padding: 0;
@@ -340,37 +420,34 @@ body {
     margin-bottom: 8px;
 }
 
-.footer-section a {
-    color: #fff;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer-section a:hover {
+/* Icons */
+.footer-section i {
+    margin-right: 8px;
     color: #00ffcc;
 }
 
-/* Newsletter */
+/* Newsletter Form */
 .newsletter-form {
     display: flex;
-    margin-top: 10px;
+    flex-direction: column;
 }
 
-.newsletter-form input {
+.newsletter-form input[type="email"] {
     padding: 10px;
     border: none;
-    border-radius: 3px 0 0 3px;
-    outline: none;
-    width: 70%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 100%;
 }
 
 .newsletter-form button {
-    padding: 10px 15px;
-    background-color: #00ffcc;
+    padding: 10px;
     border: none;
+    background-color: #00ffcc;
     color: #000;
+    font-weight: bold;
+    border-radius: 5px;
     cursor: pointer;
-    border-radius: 0 3px 3px 0;
     transition: background 0.3s ease;
 }
 
@@ -384,21 +461,45 @@ body {
 }
 
 .social-icons a {
-    display: inline-block;
+    color: #00ffcc;
     margin-right: 10px;
-    color: #fff;
     font-size: 1.2rem;
     transition: color 0.3s ease;
 }
 
 .social-icons a:hover {
-    color: #00ffcc;
+    color: #fff;
 }
 
-/* Footer Bottom Bar */
+/* Bottom Bar */
 .footer-bottom {
-    border-top: 1px solid #333;
     text-align: center;
     padding-top: 15px;
-    margin-top: 20px
+    font-size: 0.9rem;
+    color: #888;
+}
+
+.footer-bottom a {
+    color: #00ffcc;
+    text-decoration: none;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-section {
+        margin: 15px 0;
+    }
+
+    .social-icons a {
+        margin: 0 8px;
+    }
 }
