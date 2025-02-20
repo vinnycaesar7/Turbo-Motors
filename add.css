@@ -1,115 +1,140 @@
-        /* General Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            font-family: Arial, sans-serif;
-        }
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+}
 
-        /* Navbar Styles */
-        .navbar {
-            background: #333;
-            padding: 10px 20px;
-        }
+/* Navbar Styles */
+.navbar {
+    background: #333;
+    padding: 10px 20px;
+}
 
-        .navbar ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+}
 
-        .navbar ul li {
-            position: relative;
-        }
+.navbar ul li {
+    position: relative;
+}
 
-        .navbar ul li a {
-            text-decoration: none;
-            color: #fff;
-            padding: 10px 15px;
-            display: block;
-        }
+.navbar ul li a {
+    text-decoration: none;
+    color: #fff;
+    padding: 12px 20px;
+    display: block;
+    font-size: 1rem;
+}
 
-        .navbar ul li a:hover {
-            background: #555;
-            transition: background 0.3s ease;
-        }
+.navbar ul li a:hover {
+    background: #555;
+    transition: background 0.3s ease;
+}
 
-        /* Dropdown Styles */
-        .navbar ul li ul.dropdown {
-            display: none;
-            position: absolute;
-            background: #444;
-            min-width: 160px;
-            z-index: 999;
-        }
+/* Dropdown Styles */
+.navbar ul li ul.dropdown {
+    display: none;
+    position: absolute;
+    background: #444;
+    min-width: 180px;
+    z-index: 999;
+}
 
-        .navbar ul li:hover ul.dropdown {
-            display: block;
-        }
+.navbar ul li:hover ul.dropdown {
+    display: block;
+}
 
-        .navbar ul li ul.dropdown li {
-            width: 100%;
-        }
+.navbar ul li ul.dropdown li {
+    width: 100%;
+}
 
-        .navbar ul li ul.dropdown li a {
-            padding: 10px;
-        }
+.navbar ul li ul.dropdown li a {
+    padding: 10px;
+}
 
-        /* Hero Section */
-        .hero {
-            background: url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
-            color: white;
-            text-align: center;
-            padding: 100px 20px;
-        }
 
-        .hero h1 {
-            font-size: 3rem;
-        }
 
-        .hero p {
-            font-size: 1.2rem;
-        }
+.text-overlay {
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    text-align: center;
+    width: 80%;
+}
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .navbar ul {
-                flex-direction: column;
-            }
+/* Footer */
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 20px;
+}
 
-            .navbar ul li {
-                width: 100%;
-                text-align: center;
-            }
+footer .social-icons a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+}
 
-            .hero h1 {
-                font-size: 2.5rem;
-            }
+footer .social-icons a:hover {
+    color: #bbb;
+}
 
-            .hero p {
-                font-size: 1rem;
-            }
-        }
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
 
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
+    .navbar ul {
+        flex-wrap: nowrap;
+        /* Prevents stacking */
+        justify-content: center;
+        overflow-x: auto;
+    }
 
-            .hero p {
-                font-size: 0.9rem;
-            }
+    .navbar ul li a {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
 
-            .navbar ul {
-                flex-direction: column;
-            }
+    .text-overlay {
+        font-size: 1.5rem;
+        width: 90%;
+    }
+}
 
-            .navbar ul li {
-                width: 100%;
-                text-align: center;
-            }
-        }
+@media (max-width: 480px) {
+    body {
+        font-size: 12px;
+    }
+
+    .navbar ul {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: flex-start;
+    }
+
+    .navbar ul li a {
+        padding: 8px;
+        font-size: 0.8rem;
+    }
+
+    .text-overlay {
+        font-size: 1.2rem;
+        width: 95%;
+    }
+}
