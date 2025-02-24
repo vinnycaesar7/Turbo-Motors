@@ -79,6 +79,7 @@ body {
 .slides img {
     width: 100%;
     height: auto;
+    filter: blur(4px);
 }
 
 .text-overlay {
@@ -167,7 +168,7 @@ body {
 /* Centered Text Overlay */
 .text-overlay {
     position: absolute;
-    top: 15%;
+    top: 26%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 2.5rem;
@@ -184,7 +185,7 @@ body {
     font-size: 60px;
     margin-bottom: 10px;
     color: #00ffcc;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
 }
 
 .text-overlay p {
@@ -285,7 +286,7 @@ body {
 .text-info h1 {
     font-size: 2.5rem;
     color: #00ffcc;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     letter-spacing: 2px;
     margin-bottom: 15px;
 }
