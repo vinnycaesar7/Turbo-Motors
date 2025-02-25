@@ -37,8 +37,8 @@ body {
 }
 
 .navbar ul li a:hover {
-    background: #555;
-    transition: background 0.3s ease;
+    background:  #009e8a;
+    /* transition: background 0.3s ease;  */
 }
 
 /* Dropdown Styles */
