@@ -40,7 +40,7 @@ body {
 
 .navbar ul li a:hover {
     background:  red;
-    /* transition: background 0.3s ease;  */
+    transition: 0.3s ease; 
 }
 
 /* Dropdown Styles */
