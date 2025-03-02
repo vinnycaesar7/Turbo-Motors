@@ -1,14 +1,5 @@
-const form = document.getElementById('contact-form');
-const successMessage = document.getElementById('success-message');
-
-form.addEventListener('submite', (e) => {
-
-    e.preventDefault();
-
-    // simulate form submission
-    // (replace with actual submission logic)
-    setTimeout(() => {
-        successMessage.style.display ='block';
-        form.reset();
-    }, 2000);
-})
+document.getElementById("contact-form").addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevents default form submission behavior
+    document.getElementById("success-message").style.display = "block"; // Show success message
+    this.reset(); // Optional: Clears the form fields after submission
+});
