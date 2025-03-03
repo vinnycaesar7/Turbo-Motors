@@ -460,7 +460,7 @@ body {
 
 .newsletter-form button:hover {
     background-color: black;
-    color: red;
+    /* color: red; */
     font-weight: bolder;
 }
 
