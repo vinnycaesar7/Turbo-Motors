@@ -101,7 +101,6 @@ body {
 .container-box {
     display: flex;
     border: 0px solid;
-    /* background-color: #e7e6e68f; */
     justify-content: space-between;
 }
 
@@ -131,6 +130,26 @@ body {
     margin-top: 100px;
     background-color: #e7e6e68f;
 }
+
+.social-icons1 {
+    margin-top: 15px;
+}
+
+.social-icons1 a {
+    color: #ff0000;
+    margin-right: 12px;
+    font-size: 1.4rem;
+    transition: color 0.3s ease;
+    border: 1px solid ;
+    border-radius: 100px ;
+    padding: 10px;
+}
+
+.social-icons1  :hover{
+    color: white;
+    background-color: #000;
+}
+
 
 b,
 h2 {
@@ -346,11 +365,11 @@ footer .social-icons a:hover {
     margin-right: 12px;
     font-size: 1.4rem;
     transition: color 0.3s ease;
+    
 }
 
-.social-icons a:hover {
-    color: #fff;
-}
+
+
 
 
 .footer-bottom {
