@@ -203,75 +203,9 @@ h2 {
 
 
 
-
-footer {
-    color: #fff;
-    text-align: center;
-    padding: 20px 0;
-    margin-top: 20px;
-    background-image: url(./BMW/car\ slid2.jpg);
-    object-fit: cover;
-    overflow: hidden;
-}
-
-footer .social-icons a {
-    color: #ff0000;
-    margin: 0 10px;
-    text-decoration: none;
-}
-
-footer .social-icons a:hover {
-    color: #bbb;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    body {
-        font-size: 14px;
-    }
-
-    .navbar ul {
-        flex-wrap: nowrap;
-        /* Prevents stacking */
-        justify-content: center;
-        overflow-x: auto;
-    }
-
-    .navbar ul li a {
-        padding: 10px;
-        font-size: 0.9rem;
-    }
-
-    .text-overlay {
-        font-size: 1.5rem;
-        width: 90%;
-    }
-}
-
-@media (max-width: 480px) {
-    body {
-        font-size: 12px;
-    }
-
-    .navbar ul {
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        justify-content: flex-start;
-    }
-
-    .navbar ul li a {
-        padding: 8px;
-        font-size: 0.8rem;
-    }
-
-    .text-overlay {
-        font-size: 1.2rem;
-        width: 95%;
-    }
-}
-
 .classic-footer {
-    background-color: #111;
+
+    background-image: url(./BMW/car\ slid2.jpg);
     color: #fff;
     font-family: 'Orbitron', sans-serif;
     padding: 20px 0;
@@ -353,7 +287,7 @@ footer .social-icons a:hover {
 
 .newsletter-form button:hover {
     background-color: black;
-    color: red;
+    /* color: red; */
     font-weight: bolder;
 }
 
@@ -367,9 +301,11 @@ footer .social-icons a:hover {
     margin-right: 12px;
     font-size: 1.4rem;
     transition: color 0.3s ease;
-
 }
 
+.social-icons a:hover {
+    color: #fff;
+}
 
 
 .footer-bottom {
@@ -388,27 +324,20 @@ footer .social-icons a:hover {
     text-decoration: underline;
 }
 
+
+.quick-links{
+    margin-left: 100px;
+}
+
 /* Animations */
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 @keyframes slideUp {
-    from {
-        transform: translateY(20px);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
 }
 
 /* Responsive */

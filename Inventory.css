@@ -158,157 +158,6 @@ body {
 
 
 
-.classic-footer {
-    background-color: #111;
-    color: #fff;
-    font-family: "Orbitron", sans-serif;
-    padding: 10px;
-}
-
-.footer-container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    max-width: 1200px;
-    margin: 0 auto;
-    border-bottom: 1px solid #444;
-    padding-bottom: 20px;
-}
-
-.footer-section {
-    flex: 1;
-    min-width: 220px;
-    margin: 20px;
-}
-
-.footer-section h3,
-.footer-section h4 {
-    color:  #ff0000;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-}
-
-.footer-section p,
-.footer-section li,
-.footer-section a {
-    font-size: 0.95rem;
-    color: #ccc;
-    text-decoration: none;
-    line-height: 1.6;
-}
-
-.footer-section a:hover {
-    color:  #ff0000;
-}
-
-.footer-section ul {
-    list-style: none;
-}
-
-.footer-section ul li {
-    margin-bottom: 8px;
-}
-
-.footer-section i {
-    margin-right: 8px;
-    color:  #ff0000;
-}
-
-/* Newsletter */
-.newsletter-form {
-    display: flex;
-    flex-direction: column;
-}
-
-.newsletter-form input[type="email"] {
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    width: 100%;
-}
-
-.newsletter-form button {
-    padding: 10px;
-    border: none;
-    background-color:  #ff0000;
-    color: #000;
-    font-weight: bold;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.newsletter-form button:hover {
-    background-color:  #ff0000;
-}
-
-
-.newsletter-form button:hover {
-    background-color: black;
-    color: red;
-    font-weight: bolder;
-}
-
-
-/* Social Icons */
-.social-icons {
-    margin-top: 15px;
-}
-
-.social-icons a {
-    color:  #ff0000;
-    margin-right: 10px;
-    font-size: 1.2rem;
-    transition: color 0.3s ease;
-}
-
-.social-icons a:hover {
-    color: #fff;
-}
-
-/* Footer Bottom */
-.footer-bottom {
-    text-align: center;
-    padding-top: 15px;
-    font-size: 0.9rem;
-    color: #888;
-}
-
-.footer-bottom a {
-    color:  #ff0000;
-    text-decoration: none;
-}
-
-.footer-bottom a:hover {
-    text-decoration: underline;
-}
-
-
-@media (max-width: 768px) {
-    .footer-container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .footer-section {
-        margin: 15px 0;
-    }
-
-    .social-icons a {
-        margin: 0 8px;
-    }
-} 
-
-.next{
-    color: #000;
-    border: none;
-    cursor: pointer;
-
-}
-
-
-
 .pagination {
     display: flex;
     justify-content: center;
@@ -335,4 +184,176 @@ body {
 .pagination a:hover {
     background-color: black;
     color: white;
+}
+
+
+.classic-footer {
+
+    background-image: url(./BMW/car\ slid2.jpg);
+    color: #fff;
+    font-family: 'Orbitron', sans-serif;
+    padding: 20px 0;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-bottom: 1px solid #444;
+    padding-bottom: 20px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 220px;
+    margin: 20px;
+}
+
+.footer-section h3,
+.footer-section h4 {
+    color: #ff0000;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.footer-section p,
+.footer-section li,
+.footer-section a {
+    font-size: 0.95rem;
+    color: #ccc;
+    text-decoration: none;
+    line-height: 1.6;
+}
+
+.footer-section a:hover {
+    color: #ff0000;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section i {
+    margin-right: 8px;
+    color: #ff0000;
+}
+
+
+.newsletter-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.newsletter-form input[type="email"] {
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.newsletter-form button {
+    padding: 12px;
+    border: none;
+    background-color: #ff0000;
+    color: #000;
+    font-weight: bolder;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.newsletter-form button:hover {
+    background-color: black;
+    /* color: red; */
+    font-weight: bolder;
+}
+
+
+.social-icons {
+    margin-top: 15px;
+}
+
+.social-icons a {
+    color: #ff0000;
+    margin-right: 12px;
+    font-size: 1.4rem;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #fff;
+}
+
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 15px;
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+.footer-bottom a {
+    color: red;
+    text-decoration: none;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
+
+
+.quick-links{
+    margin-left: 100px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .navbar ul {
+        flex-direction: column;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-section {
+        margin: 15px 0;
+    }
+
+    .social-icons a {
+        margin: 0 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 10px 20px;
+    }
+
+    .feature {
+        width: 90%;
+    }
+
+    .about-hero {
+        padding: 4rem 1rem;
+    }
 }

@@ -1,0 +1,21 @@
+@media (orientation: portrait) {
+    .navbar{
+        position: relative;
+        justify-content: space-between;
+    }
+    .navbar > .mobile-button{
+        display: block;
+        font-size: 30px;
+        cursor: pointer; 
+    }
+    .navbar > .nav-container{
+        position: absolute;
+        top: 50px;
+        left: 200px;
+        display: none;
+    }
+    .navbar > .show{
+        display: block;
+    }
+
+  }
