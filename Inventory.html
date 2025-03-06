@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="./Inventory.css">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -16,24 +17,25 @@
     <body>
         <header>
             <nav class="navbar">
-                <ul>
+                <img src="./BMW/download vv.png " class="logo">
+                <i class="fa fa-bars mobile-button" aria-hidden="true"></i>
+                <ul class="nav-container">
                     <li><a href="home.html"><i class="fas fa-home"></i> Home</a></li>
                     <li>
-                        <a href="inventory.html"><i class="fas fa-car"></i> Inventory <i
-                                class="fas fa-caret-down"></i></a>
+                        <a href="inventory.html"><i class="fas fa-car"></i> Inventory <i class="fas fa-caret-down"></i></a>
                         <ul class="dropdown">
                             <li><a href="new-model"><i class="New model"></i> New Model</a></li>
                             <li><a href="old-model"><i class="Old model"></i> old Model</a></li>
                             <li><a href="old-model"><i class="Old model"></i> Used Model</a></li>
                         </ul>
                     </li>
-                    <li><a href="about.html"><i class="fas fa-info-circle"></i>About</a></li>
-                    <li><a href="contact.html"><i class="fas fa-envelope"></i>Contact</a></li>
-                    <li><a href="add .html"><i class="fas fa-cart-plus"></i>Added items</a></li>
-
+                    <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                    <li><a href="add .html"><i class="fas fa-cart-plus"></i> Added items</a></li>
+    
                 </ul>
             </nav>
-        </header>
+        </header>    
 
         <section class="section">
             <h2>Available Cars</h2>
@@ -57,6 +59,8 @@
                     <p>Mileage: 30,000 miles</p>
                     <p>Condition: Used</p>
                     <a href="#" class="details-btn">View Details</a>
+                    <a href="add .html" class="add-to-cart-btn">Add to Cart</a>
+
                 </div>
 
                 <div class="card">
@@ -181,14 +185,13 @@
                 </div>
             </div>
 
-
             <div class="footer-bottom">
                 <p>&copy; 2025 Turbo Motors. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms
                         of Service</a></p>
             </div>
         </footer>
 
-
+        <script src="add.js"></script>
     </body>
 
 </html>

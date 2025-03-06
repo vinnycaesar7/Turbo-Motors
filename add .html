@@ -34,9 +34,62 @@
             </ul>
         </nav>
     </header>
+  
+        <header>
+            <h1>Your Cart</h1>
+            <a href="inventory.html">Back to Inventory</a>
+        </header>
+    
+        <section id="cart-items">
+            <h2>Items in Your Cart</h2>
+            <div id="cart-container"></div>
+        </section>
+    
+        <script>
+           document.addEventListener("DOMContentLoaded", function () {
+    const cartContainer = document.getElementById("cart-container");
 
+    // Load cart from localStorage
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
+    function displayCart() {
+        cartContainer.innerHTML = ""; // Clear previous items
 
+        if (cart.length === 0) {
+            cartContainer.innerHTML = "<p>Your cart is empty.</p>";
+            return;
+        }
+
+        cart.forEach((item, index) => {
+            const itemDiv = document.createElement("div");
+            itemDiv.classList.add("cart-item");
+            itemDiv.innerHTML = `
+                <img src="${item.image}" alt="${item.name}" style="width:80px; height:50px;">
+                <span>${item.name} - $${item.price}</span>
+                <span>Qty: ${item.quantity}</span>
+                <button class="remove-btn" data-index="${index}">Remove</button>
+            `;
+            cartContainer.appendChild(itemDiv);
+        });
+
+        // Add event listeners for remove buttons
+        document.querySelectorAll(".remove-btn").forEach((button) => {
+            button.addEventListener("click", function () {
+                removeFromCart(this.getAttribute("data-index"));
+            });
+        });
+    }
+
+    function removeFromCart(index) {
+        cart.splice(index, 1); // Remove the item
+        localStorage.setItem("cart", JSON.stringify(cart)); // Update localStorage
+        displayCart(); // Refresh display
+    }
+
+    displayCart();
+});
+
+        </script>    
 
 
     <footer class="classic-footer">
