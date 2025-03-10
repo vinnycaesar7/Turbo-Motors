@@ -4,67 +4,171 @@
     box-sizing: border-box;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: white;
-    flex-wrap: wrap;
-}
 
-
+/* Navbar Styles */
 .navbar {
     background: #000;
-    padding: 10px 20px;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-.navbar ul {
+/* Logo */
+.logo {
+    width: 100px;
+    height: 2;
+}
+
+/* Navbar Links */
+.nav-container {
     list-style: none;
     display: flex;
-    justify-content: center;
     align-items: center;
-    flex-wrap: nowrap;
+    gap: 20px;
 }
 
-.navbar ul li {
+.nav-container li {
     position: relative;
 }
 
-.navbar ul li a {
+.nav-container li a {
     text-decoration: none;
     color: #fff;
     padding: 12px 20px;
-    display: block;
     font-size: 1rem;
+    position: relative;
+    transition: color 0.3s ease-in-out;
 }
 
-.navbar ul li a:hover {
-    background: red;
-    transition: 0.3s ease;
-}
-
-
-.navbar ul li ul.dropdown {
-    display: none;
-    position: absolute;
-    background: #000;
-    min-width: 180px;
-    z-index: 999;
-}
-
-.navbar ul li:hover ul.dropdown {
+/* Animated Underline */
+.nav-container li a::after {
+    content: "";
     display: block;
+    height: 3px;
+    width: 0%;
+    background: red;
+    transition: width 0.3s ease-in-out;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -5px;
 }
 
-.navbar ul li ul.dropdown li {
+.nav-container li a:hover {
+    color: red;
+}
+
+.nav-container li a:hover::after {
     width: 100%;
 }
 
-.navbar ul li ul.dropdown li a {
-    padding: 10px;
+/* Dropdown Menu */
+.nav-container li ul.dropdown {
+    display: none;
+    position: absolute;
+    background: #222;
+    min-width: 200px;
+    top: 100%;
+    left: 0;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-container li:hover ul.dropdown {
+    display: block;
+}
+
+.nav-container li ul.dropdown li {
+    width: 100%;
+}
+
+.nav-container li ul.dropdown li a {
+    padding: 12px 15px;
+    display: block;
+    color: #fff;
+}
+
+.nav-container li ul.dropdown li a:hover {
+    background: red;
+}
+
+/* Login Button */
+.login-btn {
+    background: red;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.login-btn:hover {
+    background: darkred;
+}
+
+/* Mobile Button */
+.mobile-button {
+    display: none;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+    .nav-container {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: #000;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 10px 0;
+    }
+
+    .nav-container.active {
+        display: flex;
+    }
+
+    .nav-container li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .mobile-button {
+        display: block;
+    }
 }
 
 
 
-.text-overlay {
+/* Header Section */
+ header {
+    color: white;
+    text-align: center;
+
+}
+
+header a {
+    color: #ff0000;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+h1, h2 {
+    text-align: center;
+} 
+
+
+/* Text Overlay */
+/* .text-overlay {
     position: absolute;
     bottom: 20%;
     left: 50%;
@@ -72,27 +176,7 @@ body {
     font-size: 2rem;
     text-align: center;
     width: 80%;
-}
-
-
-
-
-
-header {
-    color: white;
-    text-align: center;
-    padding: 15px;
-}
-
-header a {
-    color: #ffcc00;
-    text-decoration: none;
-    font-size: 18px;
-}
-
-h1, h2 {
-    text-align: center;
-}
+} */
 
 /* Cart Section */
 #cart-items {
@@ -109,7 +193,6 @@ h1, h2 {
     flex-direction: column;
     gap: 15px;
 }
-
 
 .cart-item {
     display: flex;
@@ -142,72 +225,8 @@ h1, h2 {
     background-color: darkred;
 }
 
-/* Responsive Design */
-@media (max-width: 600px) {
-    .cart-item {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .cart-item img {
-        margin-bottom: 10px;
-    }
-}
-
-
-/* Animations */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes slideUp {
-    from { transform: translateY(20px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .navbar ul {
-        flex-direction: column;
-    }
-
-    .footer-container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .footer-section {
-        margin: 15px 0;
-    }
-
-    .social-icons a {
-        margin: 0 8px;
-    }
-}
-
-@media (max-width: 480px) {
-    .navbar {
-        padding: 10px 20px;
-    }
-
-    .feature {
-        width: 90%;
-    }
-
-    .about-hero {
-        padding: 4rem 1rem;
-    }
-}
-
-
-
-
-
-
-
+/* Footer Section */
 .classic-footer {
-
     background-image: url(./BMW/car\ slid2.jpg);
     color: #fff;
     font-family: 'Orbitron', sans-serif;
@@ -263,7 +282,7 @@ h1, h2 {
     color: #ff0000;
 }
 
-
+/* Newsletter Form */
 .newsletter-form {
     display: flex;
     flex-direction: column;
@@ -291,10 +310,9 @@ h1, h2 {
 .newsletter-form button:hover {
     background-color: black;
     color: #ccc;
-    font-weight: bolder;
 }
 
-
+/* Social Icons */
 .social-icons {
     margin-top: 15px;
 }
@@ -310,7 +328,7 @@ h1, h2 {
     color: #fff;
 }
 
-
+/* Footer Bottom */
 .footer-bottom {
     text-align: center;
     padding-top: 15px;
@@ -325,5 +343,52 @@ h1, h2 {
 
 .footer-bottom a:hover {
     text-decoration: underline;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar ul {
+        flex-direction: column;
+    }
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-section {
+        margin: 15px 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .cart-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    .cart-item img {
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 10px 20px;
+    }
+    .feature {
+        width: 90%;
+    }
+    .about-hero {
+        padding: 4rem 1rem;
+    }
 }
 
