@@ -6,8 +6,6 @@
 
 body {
     font-family: Arial, sans-serif;
-    font-size: 16px;
-    line-height: 1.5;
     background-color: white;
     flex-wrap: wrap;
 }
@@ -75,6 +73,133 @@ body {
     text-align: center;
     width: 80%;
 }
+
+
+
+
+
+header {
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+header a {
+    color: #ffcc00;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+/* Cart Section */
+#cart-items {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+#cart-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.cart-item img {
+    border-radius: 5px;
+}
+
+.cart-item span {
+    flex: 1;
+    text-align: center;
+}
+
+/* Remove Button */
+.cart-item button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.cart-item button:hover {
+    background-color: darkred;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .cart-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .cart-item img {
+        margin-bottom: 10px;
+    }
+}
+
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .navbar ul {
+        flex-direction: column;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-section {
+        margin: 15px 0;
+    }
+
+    .social-icons a {
+        margin: 0 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 10px 20px;
+    }
+
+    .feature {
+        width: 90%;
+    }
+
+    .about-hero {
+        padding: 4rem 1rem;
+    }
+}
+
 
 
 
@@ -202,139 +327,3 @@ body {
     text-decoration: underline;
 }
 
-
-.quick-links{
-    margin-left: 100px;
-}
-
-/* General Page Styling */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f8f9fa;
-}
-
-header {
-    background-color: #343a40;
-    color: white;
-    text-align: center;
-    padding: 15px;
-}
-
-header a {
-    color: #ffcc00;
-    text-decoration: none;
-    font-size: 18px;
-    margin-left: 20px;
-}
-
-h1, h2 {
-    text-align: center;
-}
-
-/* Cart Section */
-#cart-items {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-}
-
-#cart-container {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-/* Cart Item */
-.cart-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-}
-
-.cart-item img {
-    border-radius: 5px;
-}
-
-.cart-item span {
-    flex: 1;
-    text-align: center;
-}
-
-/* Remove Button */
-.cart-item button {
-    background-color: red;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.cart-item button:hover {
-    background-color: darkred;
-}
-
-/* Responsive Design */
-@media (max-width: 600px) {
-    .cart-item {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .cart-item img {
-        margin-bottom: 10px;
-    }
-}
-
-
-/* Animations */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes slideUp {
-    from { transform: translateY(20px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .navbar ul {
-        flex-direction: column;
-    }
-
-    .footer-container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .footer-section {
-        margin: 15px 0;
-    }
-
-    .social-icons a {
-        margin: 0 8px;
-    }
-}
-
-@media (max-width: 480px) {
-    .navbar {
-        padding: 10px 20px;
-    }
-
-    .feature {
-        width: 90%;
-    }
-
-    .about-hero {
-        padding: 4rem 1rem;
-    }
-}

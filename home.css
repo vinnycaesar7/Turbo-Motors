@@ -39,7 +39,6 @@ body {
 
 .navbar ul li a:hover {
     background: #f50b0b;
-    /* transition: background 0.3s ease; */
 }
 
 .navbar ul li ul.dropdown {
@@ -78,6 +77,16 @@ body {
     object-fit: cover;
 } 
 
+.login-btn {
+    background: red;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.login-btn:hover {
+    background: rgb(105, 0, 0);
+}
 
 .slideshow {
     position: relative;
@@ -341,7 +350,7 @@ body {
     display: inline-block;
     padding: 12px 24px;
     background: #f50b0b;
-    color: #000;
+    color: white;
     font-size: 1rem;
     font-weight: bold;
     text-transform: uppercase;
@@ -351,9 +360,8 @@ body {
     margin-top: 15px;
 }
 
-.btn-learn:hover {
-    background: #000;
-    color: red;
+.btn-learn:hover{
+    background-color: #ac0000;
 }
 
 /* Responsive Design */
@@ -478,8 +486,8 @@ body {
 }
 
 .newsletter-form button:hover {
-    background-color: black;
-    /* color: red; */
+    background-color: red;
+    color: #ccc;
     font-weight: bolder;
 }
 
