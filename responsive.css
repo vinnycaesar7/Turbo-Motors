@@ -1,8 +1,15 @@
 @media (orientation: portrait) {
+
+    .navbar{
+        padding: 0px 20px;
+    }
+
     .navbar{
         position: relative;
         justify-content: space-between;
     }
+
+
     .navbar > .mobile-button{
         display: block;
         font-size: 30px;
@@ -10,16 +17,24 @@
     }
     .navbar > .nav-container{
         position: absolute;
-        top: 50px;
+        top: 3px;
         left: 200px;
         display: none;
+        
     }
     .navbar > .show{
         display: block;
     }
 
-    .navbar > .ul{
-       
+    .navbar > .show{
+        background-color: #000;
     }
 
   }
+
+
+
+  
+
+
+  

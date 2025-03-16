@@ -4,8 +4,6 @@
     box-sizing: border-box;
 }
 
-
-
 body {
     font-family: Arial, sans-serif;
     font-size: 16px;
@@ -15,8 +13,10 @@ body {
 }
 
 .add-to-cart-btn {
-    display: inline-block;
-    background-color: #474747; /* Orange color */
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background-color: #474747;
     color: white;
     padding: 10px 15px;
     border: none;
@@ -31,8 +31,8 @@ body {
 }
 
 .add-to-cart-btn:hover {
-    background-color: #FFFFFF; /* Darker orange */
-    border:  2px solid red;;
+    background-color: #ffffff;
+    border: 2px solid red;
     color: #000;
     transform: scale(1.05);
 }
@@ -42,6 +42,14 @@ body {
     transform: scale(0.98);
 }
 
+.flex-btn {
+    display: flex;
+    gap: 5px;
+}
+
+.add-to-cart-btn i {
+    font-size: 18px;
+}
 
 .section {
     text-align: center;
@@ -111,7 +119,7 @@ body {
     display: inline-block;
     margin-top: 10px;
     padding: 10px 15px;
-    background-color:  #ff0000;
+    background-color: #ff0000;
     color: #000;
     border: none;
     border-radius: 5px;
@@ -122,11 +130,9 @@ body {
 }
 
 .details-btn:hover {
-    background-color:  #ff0000;
+    background-color: #ff0000;
     color: #fff;
 }
-
-
 
 .text-overlay {
     position: absolute;
@@ -137,9 +143,6 @@ body {
     text-align: center;
     width: 80%;
 }
-
-
-
 
 .pagination {
     display: flex;
@@ -292,19 +295,31 @@ body {
 }
 
 
-.quick-links{
+.quick-links {
     margin-left: 100px;
 }
 
 /* Animations */
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 @keyframes slideUp {
-    from { transform: translateY(20px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 /* Responsive */
@@ -328,6 +343,7 @@ body {
 }
 
 @media (max-width: 480px) {
+
     .navbar {
         padding: 10px 20px;
     }
@@ -338,5 +354,74 @@ body {
 
     .about-hero {
         padding: 4rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+
+    .section h2 {
+        font-size: 1.5rem;
+    }
+
+    .cars-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 90%;
+        padding: 10px;
+    }
+
+    .card img {
+        height: 150px;
+    }
+
+    .add-to-cart-btn,
+    .details-btn {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+
+    .footer-container {
+        text-align: center;
+        padding: 10px;
+    }
+
+    .footer-section {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .newsletter-form input[type="email"] {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .newsletter-form button {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .social-icons a {
+        font-size: 1.2rem;
+    }
+
+    .pagination a {
+        padding: 6px 10px;
+        font-size: 14px;
+    }
+
+    .text-overlay {
+        font-size: 1.5rem;
+        bottom: 15%;
+    }
+
+    .quick-links {
+        margin-left: 0;
+        text-align: center;
     }
 }

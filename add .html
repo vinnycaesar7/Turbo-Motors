@@ -26,13 +26,13 @@
                     <a href="inventory.html"><i class="fas fa-car"></i> Inventory <i class="fas fa-caret-down"></i></a>
                     <ul class="dropdown">
                         <li><a href="new-model"><i class="New model"></i> New Model</a></li>
-                        <li><a href="old-model"><i class="Old model"></i> old Model</a></li>
+                        <li><a href="old-model"><i class="Old model"></i> Old Model</a></li>
                         <li><a href="old-model"><i class="Old model"></i> Used Model</a></li>
                     </ul>
                 </li>
-                <li><a href="about.html"><i class="fas fa-info-circle"></i>About</a></li>
-                <li><a href="contact.html"><i class="fas fa-envelope"></i>Contact</a></li>
-                <li><a href="add .html"><i class="fas fa-cart-plus"></i>Added items</a></li>
+                <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                <li><a href="add .html"><i class="fas fa-cart-plus"></i> Added items</a></li>
                 <li><a href="./login and logout/index.html" class="login-btn">Login</a></li>
 
             </ul>
@@ -146,8 +146,29 @@
             displayCart();
         });
 
+        function addToCart(name, price, image) {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+            // Check if the car already exists in the cart
+            let existingItem = cart.find(item => item.name === name);
+
+            if (existingItem) {
+                // If item exists, increase quantity
+                existingItem.quantity += 1;
+            } else {
+                // Otherwise, add new item with quantity 1
+                cart.push({ name, price, image, quantity: 1 });
+            }
+
+            // Save updated cart to localStorage
+            localStorage.setItem("cart", JSON.stringify(cart));
+        }
+
+        
+
     </script>
 
+    <script src="./responsive.js"></script>
 </body>
 
 </html>

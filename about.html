@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Turbo Motors</title>
     <link rel="stylesheet" href="./about.css">
+    <link rel="stylesheet" href="./responsive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -14,7 +15,9 @@
 <body>
     <header>
         <nav class="navbar">
-            <ul>
+            <img src="./BMW/logo.png " class="logo">
+            <i class="fa fa-bars mobile-button" aria-hidden="true"></i>
+            <ul class="nav-container">
                 <li><a href="home.html"><i class="fas fa-home"></i> Home</a></li>
                 <li>
                     <a href="inventory.html"><i class="fas fa-car"></i> Inventory <i class="fas fa-caret-down"></i></a>
@@ -24,9 +27,11 @@
                         <li><a href="old-model"><i class="Old model"></i> Used Model</a></li>
                     </ul>
                 </li>
-                <li><a href="about.html" class="active"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
                 <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
-                <li><a href="add .html"><i class="fas fa-cart-plus"></i>Added items</a></li>
+                <li><a href="add .html"><i class="fas fa-cart-plus"></i> Added items</a></li>
+                <li><a href="./login and logout/index.html" class="login-btn">Login</a></li>
+
             </ul>
         </nav>
     </header>
@@ -37,7 +42,7 @@
     </section> -->
 
     <div class="about-hero">
-        <video  autoplay muted loop playsinline>
+        <video autoplay muted loop playsinline>
             <source class="vids" src="./BMW/Drive2Extremes - Taycan Cross Turismo X Johnny FPV.mp4" type="video/mp4">
         </video>
     </div>
@@ -45,8 +50,8 @@
         <h1>Turbo <span>Motors</span></h1>
         <p>Experience the future of driving</p>
     </div>
-    
-    
+
+
 
 
     <section class="about-content">
@@ -143,7 +148,7 @@
                     Service</a></p>
         </div>
     </footer>
-
+<script src="./responsive.js"></script>
 </body>
 
 </html>
