@@ -10,7 +10,70 @@ body {
     line-height: 1.5;
     background-color: #f4f4f4;
     height: 100vh;
+} 
+ 
+
+.logo{
+    display: inline-flex;
+    width: 7rem;
+    height: 8rem;
+    align-items: center;
+    margin-right: 20%;
+    object-fit: cover;
+} 
+
+.login-btn {
+    background: red;
+    border-radius: 5px;
+    font-weight: bold;
 }
+
+.login-btn:hover {
+    background: rgb(105, 0, 0);
+}
+
+
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    .navbar ul {
+        flex-wrap: nowrap;
+        justify-content: center;
+        overflow-x: auto;
+    }
+
+    .navbar ul li a {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 12px;
+    }
+
+    .navbar ul  {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: flex-start;
+    }
+
+    
+    .navbar ul li a {
+        padding: 8px;
+        font-size: 0.8rem;
+    }
+
+}
+
 
 .add-to-cart-btn {
     display: inline-flex;
@@ -424,4 +487,62 @@ body {
         margin-left: 0;
         text-align: center;
     }
+}
+
+
+.card {
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.card h3 {
+    margin: 10px 0;
+}
+
+.details-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background: red;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -350px; 
+    width: 350px;
+    height: 100%;
+    background: white;
+    box-shadow: -4px 0 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    transition: right 0.4s ease-in-out;
+}
+
+.sidebar.active {
+    right: 0;
+}
+
+.sidebar h2 {
+    margin-bottom: 20px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
 }

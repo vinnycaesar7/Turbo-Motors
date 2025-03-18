@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Details</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            gap: 20px;
+        }
+
+        .card {
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            text-align: center;
+            width: 300px;
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .card h3 {
+            margin: 10px 0;
+        }
+
+        .details-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 15px;
+            background: red;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: -350px; /* Initially hidden */
+            width: 350px;
+            height: 100%;
+            background: white;
+            box-shadow: -4px 0 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            transition: right 0.4s ease-in-out;
+        }
+
+        .sidebar.active {
+            right: 0;
+        }
+
+        .sidebar h2 {
+            margin-bottom: 20px;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Car 1 -->
+    <div class="card">
+        <img src="./Other car images/image1.jpg" alt="Toyota Supra MK4">
+        <h3>Toyota Supra MK4</h3>
+        <p>Price: $35,000</p>
+        <p>Year: 1998</p>
+        <p>Mileage: 120,000 miles</p>
+        <p>Condition: Classic</p>
+        <a href="#" class="details-btn" onclick="openSidebar('sidebar1')">View Details</a>
+    </div>
+
+    <!-- Car 2 -->
+    <div class="card">
+        <img src="./Other car images/image2.jpg" alt="Nissan GTR R34">
+        <h3>Nissan GTR R34</h3>
+        <p>Price: $50,000</p>
+        <p>Year: 2002</p>
+        <p>Mileage: 80,000 miles</p>
+        <p>Condition: Excellent</p>
+        <a href="#" class="details-btn" onclick="openSidebar('sidebar2')">View Details</a>
+    </div>
+
+    <!-- Sidebar for Car 1 -->
+    <div class="sidebar" id="sidebar1">
+        <span class="close-btn" onclick="closeSidebar('sidebar1')">✖</span>
+        <h2>Car Details</h2>
+        <p><strong>Model:</strong> Toyota Supra MK4</p>
+        <p><strong>Price:</strong> $35,000</p>
+        <p><strong>Year:</strong> 1998</p>
+        <p><strong>Mileage:</strong> 120,000 miles</p>
+        <p><strong>Condition:</strong> Classic</p>
+        <p><strong>Transmission:</strong> Manual</p>
+        <p><strong>Engine:</strong> 3.0L Twin-Turbo</p>
+        <p><strong>Horsepower:</strong> 320 HP</p>
+    </div>
+
+    <!-- Sidebar for Car 2 -->
+    <div class="sidebar" id="sidebar2">
+        <span class="close-btn" onclick="closeSidebar('sidebar2')">✖</span>
+        <h2>Car Details</h2>
+        <p><strong>Model:</strong> Nissan GTR R34</p>
+        <p><strong>Price:</strong> $50,000</p>
+        <p><strong>Year:</strong> 2002</p>
+        <p><strong>Mileage:</strong> 80,000 miles</p>
+        <p><strong>Condition:</strong> Excellent</p>
+        <p><strong>Transmission:</strong> Automatic</p>
+        <p><strong>Engine:</strong> 2.6L Twin-Turbo</p>
+        <p><strong>Horsepower:</strong> 280 HP</p>
+    </div>
+
+    <script>
+        function openSidebar(id) {
+            document.getElementById(id).classList.add("active");
+        }
+
+        function closeSidebar(id) {
+            document.getElementById(id).classList.remove("active");
+        }
+    </script>
+
+</body>
+</html>

@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (!addToCartBtn) {
             addToCartBtn = document.createElement("a");
-            addToCartBtn.href = "add.html"; 
+            addToCartBtn.href = "add.html";
             addToCartBtn.classList.add("add-to-cart-btn");
             addToCartBtn.innerText = "Add to Cart";
             card.appendChild(addToCartBtn);
