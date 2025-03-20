@@ -7,27 +7,28 @@
 
 body {
     font-family: Arial, sans-serif;
-    font-size: 16px;
+
 }
 
 .navbar {
     background: #000;
-    padding: 0 20px;
+    padding: 5px 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: sticky;
     top: 0;
     width: 100%;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.navbar > ul {
+.navbar>ul {
     display: inline-flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: nowrap;
-    gap: 20px;
+    gap: 10px;
 }
 
 .navbar ul li {
@@ -40,10 +41,12 @@ body {
     padding: 12px 20px;
     display: block;
     font-size: 1rem;
+    transition: background 0.3;
 }
 
 .navbar ul li a:hover {
     background: #f50b0b;
+    border-radius: 3px;
 }
 
 .navbar ul li ul.dropdown {
@@ -52,6 +55,8 @@ body {
     background: #000;
     min-width: 180px;
     z-index: 999;
+    top: 100%;
+    left: 0;
 }
 
 .navbar ul li:hover ul.dropdown {
@@ -63,24 +68,26 @@ body {
 }
 
 .navbar ul li ul.dropdown li a {
-    padding: 10px;
+    padding: 8px;
 }
 
 
-.navbar > .mobile-button{
+.navbar>.mobile-button {
     display: none;
     color: #ccc;
+    font-size: 1.2rem;
+    cursor: pointer;
 }
 
 
-.logo{
+.logo {
     display: inline-flex;
     width: 7rem;
     height: 8rem;
     align-items: center;
     margin-right: 20%;
     object-fit: cover;
-} 
+}
 
 .login-btn {
     background: red;
@@ -93,10 +100,6 @@ body {
     background: rgb(105, 0, 0);
 }
 
-
-
-
-
 /* Responsive Design */
 @media (max-width: 768px) {
     body {
@@ -105,7 +108,7 @@ body {
 
     .navbar ul {
         flex-wrap: nowrap;
-        /* Prevents stacking */
+
         justify-content: center;
         overflow-x: auto;
     }
@@ -133,13 +136,14 @@ body {
         font-size: 0.8rem;
     }
 
+    .logo {
+        margin-right: 50%;
+        height: 60px;
+    }
 }
 
-
-
-
 /* Header Section */
- header {
+header {
     color: white;
     text-align: center;
 
@@ -151,9 +155,10 @@ header a {
     font-size: 18px;
 }
 
-h1, h2 {
+h1,
+h2 {
     text-align: center;
-} 
+}
 
 
 
@@ -326,13 +331,25 @@ h1, h2 {
 
 /* Animations */
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 @keyframes slideUp {
-    from { transform: translateY(20px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 /* Responsive Design */
@@ -340,10 +357,12 @@ h1, h2 {
     .navbar ul {
         flex-direction: column;
     }
+
     .footer-container {
         flex-direction: column;
         text-align: center;
     }
+
     .footer-section {
         margin: 15px 0;
     }
@@ -354,6 +373,7 @@ h1, h2 {
         flex-direction: column;
         text-align: center;
     }
+
     .cart-item img {
         margin-bottom: 10px;
     }
@@ -363,11 +383,12 @@ h1, h2 {
     .navbar {
         padding: 10px 20px;
     }
+
     .feature {
         width: 90%;
     }
+
     .about-hero {
         padding: 4rem 1rem;
     }
 }
-
