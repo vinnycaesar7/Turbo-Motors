@@ -7,16 +7,16 @@
 
 body {
     font-family: Arial, sans-serif;
-
+    background-color: #f4f4f4;
 }
 
 .navbar {
     background: #000;
-    padding: 5px 10px;
+    padding: 5px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: sticky;
+    position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
@@ -38,10 +38,10 @@ body {
 .navbar ul li a {
     text-decoration: none;
     color: #fff;
-    padding: 12px 20px;
+    padding: 8px 20px;
     display: block;
     font-size: 1rem;
-    transition: background 0.3;
+    transition: background 0.3s;
 }
 
 .navbar ul li a:hover {
@@ -71,14 +71,13 @@ body {
     padding: 8px;
 }
 
-
+/* mobile button */
 .navbar>.mobile-button {
     display: none;
     color: #ccc;
     font-size: 1.2rem;
     cursor: pointer;
 }
-
 
 .logo {
     display: inline-flex;
@@ -91,9 +90,12 @@ body {
 
 .login-btn {
     background: red;
-    /* padding: 10px 20px; */
-    border-radius: 5px;
+    border-radius: 3px;
     font-weight: bold;
+    padding: 8px 12px;
+    color: #ccc;
+    text-decoration: none;
+    font-size: 0.9rem;
 }
 
 .login-btn:hover {
@@ -107,10 +109,22 @@ body {
     }
 
     .navbar ul {
-        flex-wrap: nowrap;
-
+        display: none;
         justify-content: center;
         overflow-x: auto;
+    }
+
+    .navbar>.mobile-button {
+        display: block;
+        color: #ccc;
+        font-size: 1.90rem;
+        cursor: pointer;
+    }
+
+
+    .navbar.show-menu .navbar>ul li {
+        width: 100%;
+        text-align: center;
     }
 
     .navbar ul li a {
@@ -126,9 +140,8 @@ body {
     }
 
     .navbar ul {
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        justify-content: flex-start;
+        display: none;
+        list-style: none;
     }
 
     .navbar ul li a {
@@ -140,13 +153,31 @@ body {
         margin-right: 50%;
         height: 60px;
     }
+
+    .login-btn {
+        background: red;
+        border-radius: 3px;
+        font-weight: bold;
+        padding: 8px 12px;
+        color: white;
+        text-decoration: none;
+        font-size: 0.9rem;
+    }
 }
 
 /* Header Section */
 header {
     color: white;
-    text-align: center;
+}
 
+.cat{
+    text-align: center;
+    color: #000;
+    padding-top: 150px;
+}
+
+h1{
+    text-align: center;
 }
 
 header a {

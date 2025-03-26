@@ -7,7 +7,6 @@
 
 body {
     font-family: Arial, sans-serif;
-    /* font-size: 16px; */
 }
 
 .navbar {
@@ -16,7 +15,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: sticky;
+    position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
@@ -147,6 +146,7 @@ body {
     text-align: center;
     font-size: 24px;
     color: white;
+    padding-top: 150px;
 }
 
 #header a {
@@ -262,8 +262,6 @@ button:hover {
     }
 }
 
-
-
 .classic-footer {
 
     background-image: url(./BMW/car\ slid2.jpg);
@@ -377,7 +375,8 @@ button:hover {
 }
 
 .footer-bottom a {
-    color: white
+    color: white;
+    text-decoration: none;
 }
 
 .footer-bottom a:hover {

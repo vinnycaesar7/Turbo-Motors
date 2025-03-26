@@ -25,9 +25,9 @@
                 <li>
                     <a href="inventory.html"><i class="fas fa-car"></i> Inventory <i class="fas fa-caret-down"></i></a>
                     <ul class="dropdown">
-                        <li><a href="new-model"><i class="New model"></i> New Model</a></li>
-                        <li><a href="old-model"><i class="Old model"></i> Old Model</a></li>
-                        <li><a href="old-model"><i class="Old model"></i> Used Model</a></li>
+                        <li><a href="./new.html"><i class="New model"></i> New Model</a></li>
+                        <li><a href="./old.html"><i class="Old model"></i> Old Model</a></li>
+                        <li><a href="./used.html"><i class="Used model"></i> Used Model</a></li>
                     </ul>
                 </li>
                 <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
@@ -39,7 +39,7 @@
         </nav>
     </header>
 
-    <header>
+    <header class="cat">
         <h1>Your Cart</h1>
         <a href="inventory.html">Back to Inventory</a>
     </header>
@@ -105,12 +105,21 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const cartContainer = document.getElementById("cart-container");
-
-            // Load cart from localStorage
             let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
+            function calculateTotal() {
+                let total = 0;
+                cart.forEach(item => {
+                    if (item && item.price && item.quantity) {
+                        // Make sure price is a number before adding
+                        total += parseFloat(item.price) * item.quantity;
+                    }
+                });
+                return total;
+            }
+
             function displayCart() {
-                cartContainer.innerHTML = ""; // Clear previous items
+                cartContainer.innerHTML = "";
 
                 if (cart.length === 0) {
                     cartContainer.innerHTML = "<p>Your cart is empty.</p>";
@@ -122,15 +131,19 @@
                     itemDiv.classList.add("cart-item");
                     itemDiv.innerHTML = `
                 <img src="${item.image}" alt="${item.name}" style="width:80px; height:50px;">
-                <span>${item.name} - $${item.price}</span>
+                <span>${item.name} - $${parseFloat(item.price).toFixed(2)}</span>
                 <span>Qty: ${item.quantity}</span>
                 <button class="remove-btn" data-index="${index}">Remove</button>
             `;
                     cartContainer.appendChild(itemDiv);
                 });
 
-                // Add event listeners for remove buttons
-                document.querySelectorAll(".remove-btn").forEach((button) => {
+                const totalDiv = document.createElement("div");
+                totalDiv.classList.add("cart-total");
+                totalDiv.innerHTML = `<strong>Total: $${calculateTotal().toFixed(2)}</strong>`;
+                cartContainer.appendChild(totalDiv);
+
+                document.querySelectorAll(".remove-btn").forEach(button => {
                     button.addEventListener("click", function () {
                         removeFromCart(this.getAttribute("data-index"));
                     });
@@ -138,9 +151,9 @@
             }
 
             function removeFromCart(index) {
-                cart.splice(index, 1); // Remove the item
-                localStorage.setItem("cart", JSON.stringify(cart)); // Update localStorage
-                displayCart(); // Refresh display
+                cart.splice(index, 1);
+                localStorage.setItem("cart", JSON.stringify(cart));
+                displayCart();
             }
 
             displayCart();
@@ -148,26 +161,21 @@
 
         function addToCart(name, price, image) {
             let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-            // Check if the car already exists in the cart
             let existingItem = cart.find(item => item.name === name);
 
+            price = parseFloat(price);
+
             if (existingItem) {
-                // If item exists, increase quantity
                 existingItem.quantity += 1;
             } else {
-                // Otherwise, add new item with quantity 1
                 cart.push({ name, price, image, quantity: 1 });
             }
 
-            // Save updated cart to localStorage
             localStorage.setItem("cart", JSON.stringify(cart));
         }
 
-        
 
     </script>
-
     <script src="./responsive.js"></script>
 </body>
 

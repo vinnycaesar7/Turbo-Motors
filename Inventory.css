@@ -16,7 +16,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: sticky;
+    position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
@@ -141,7 +141,7 @@ body {
 
     .navbar ul {
         display: none;
-       list-style: none;
+        list-style: none;
     }
 
     .navbar ul li a {
@@ -164,7 +164,6 @@ body {
         font-size: 0.9rem;
     }
 }
-
 
 .add-to-cart-btn {
     display: inline-flex;
@@ -212,6 +211,7 @@ body {
 .section h2 {
     color: #333;
     margin-bottom: 20px;
+    padding-top:160px ;
 }
 
 
@@ -304,6 +304,7 @@ body {
     align-items: center;
     margin-top: 20px;
     gap: 10px;
+    padding-bottom: 20px;
 }
 
 .pagination a {
@@ -324,6 +325,12 @@ body {
 .pagination a:hover {
     background-color: black;
     color: white;
+}
+
+
+.number2.active {
+    background-color: #ff0000;
+    color: #ccc;
 }
 
 
@@ -411,7 +418,7 @@ body {
 
 .newsletter-form button:hover {
     background-color: black;
-    /* color: red; */
+    color: white;
     font-weight: bolder;
 }
 
@@ -580,46 +587,17 @@ body {
     }
 }
 
-
-.card {
-    background: #fff;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-    text-align: center;
-    width: 300px;
-}
-
-.card img {
-    width: 100%;
-    border-radius: 10px;
-}
-
-.card h3 {
-    margin: 10px 0;
-}
-
-.details-btn {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 10px 15px;
-    background: red;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
 .sidebar {
     position: fixed;
-    top: 0;
+    bottom: 5%;
     right: -350px;
     width: 350px;
-    height: 100%;
-    background: white;
-    box-shadow: -4px 0 8px rgba(0, 0, 0, 0.2);
+    height: 60%;
+    background: #f8f8f8;
+    box-shadow: -4px 0 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     transition: right 0.4s ease-in-out;
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
 }
 
 .sidebar.active {
@@ -628,6 +606,19 @@ body {
 
 .sidebar h2 {
     margin-bottom: 20px;
+    color: #333;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.sidebar p {
+    margin-bottom: 10px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.sidebar strong {
+    color: red
 }
 
 .close-btn {
@@ -636,4 +627,10 @@ body {
     right: 20px;
     font-size: 24px;
     cursor: pointer;
+    color: #888;
+}
+
+.close-btn:hover {
+    color: #333;
+
 }
