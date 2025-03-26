@@ -170,13 +170,13 @@ header {
     color: white;
 }
 
-.cat{
+.cat {
     text-align: center;
     color: #000;
     padding-top: 150px;
 }
 
-h1{
+h1 {
     text-align: center;
 }
 
@@ -422,4 +422,90 @@ h2 {
     .about-hero {
         padding: 4rem 1rem;
     }
+}
+ 
+
+
+#checkout-form {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    display: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 400px;
+    z-index: 1000;
+}
+
+#checkout-form.active {
+    display: block;
+}
+
+#checkout-form h2 {
+    color: #2d3748;
+    text-align: left;
+    margin-bottom: 25px;
+    font-size: 1.8em;
+    font-weight: 600;
+}
+
+#checkout-form label {
+    display: block;
+    margin-top: 15px;
+    color: #4a5568;
+    font-weight: 500;
+}
+
+#checkout-form input,
+#checkout-form select {
+    width: calc(100% - 16px);
+    padding: 12px;
+    margin-top: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 1em;
+    color: #2d3748;
+}
+
+#checkout-form input:focus,
+#checkout-form select:focus {
+    outline: none;
+    border-color: red;
+    box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.2);
+}
+
+#checkout-form button {
+    background-color: red;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 1em;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    /* Smooth transition on hover */
+}
+
+#checkout-form button:hover {
+    background-color: red;
+    /* Darker blue on hover */
+}
+
+#checkout-form button:last-child {
+    background-color: #edf2f7;
+    /* Light gray for cancel button */
+    color: #4a5568;
+    margin-left: 10px;
+}
+
+#checkout-form button:last-child:hover {
+    background-color: #d1d5db;
 }

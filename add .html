@@ -49,7 +49,35 @@
         <div id="cart-container"></div>
     </section>
 
+    <!-- <form>
+        <input type="text" id="name" name="name" required placeholder="Name">
+        <input type="email" id="email" name="email" required placeholder="Email">
+        <select id="payment">
+            <option value="">Select Payment Method</option>
+            <option value="">CRedit Card</option>
+            <option value="">Bank Transfer</option>
+            <option value="">Cash on Delivery</option>
+        </select>
+        <button onclick="submiteOrder()">submite Order</button>
+    </form> -->
 
+    <div id="checkout-form">
+        <h2>Checkout</h2>
+        <label for="name">Name:</label>
+        <input type="text" id="name" placeholder="Your Name">
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" placeholder="Your Email">
+
+        <label for="payment">Payment Method:</label>
+        <select id="payment">
+            <option value="credit">Credit Card</option>
+            <option value="paypal">PayPal</option>
+        </select>
+
+        <button onclick="submiteOrder()">Submit Order</button>
+        <button onclick="document.getElementById('checkout-form').classList.remove('active')">Cancel</button>
+    </div>
 
     <footer class="classic-footer">
         <div class="footer-container">
@@ -103,77 +131,240 @@
 
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", initializeCart);
+
+        function initializeCart() {
             const cartContainer = document.getElementById("cart-container");
-            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            let cart = getCartFromLocalStorage();
+            displayCart(cart, cartContainer);
+        }
 
-            function calculateTotal() {
-                let total = 0;
-                cart.forEach(item => {
-                    if (item && item.price && item.quantity) {
-                        // Make sure price is a number before adding
-                        total += parseFloat(item.price) * item.quantity;
-                    }
-                });
-                return total;
-            }
+        function getCartFromLocalStorage() {
+            return JSON.parse(localStorage.getItem("cart")) || [];
+        }
 
-            function displayCart() {
-                cartContainer.innerHTML = "";
+        function saveCartToLocalStorage(cart) {
+            localStorage.setItem("cart", JSON.stringify(cart));
+        }
 
-                if (cart.length === 0) {
-                    cartContainer.innerHTML = "<p>Your cart is empty.</p>";
-                    return;
+        function calculateTotal(cart) {
+            let total = 0;
+            cart.forEach(item => {
+                if (item && item.price && item.quantity) {
+                    total += parseFloat(item.price) * item.quantity;
                 }
+            });
+            return total;
+        }
 
-                cart.forEach((item, index) => {
-                    const itemDiv = document.createElement("div");
-                    itemDiv.classList.add("cart-item");
-                    itemDiv.innerHTML = `
-                <img src="${item.image}" alt="${item.name}" style="width:80px; height:50px;">
-                <span>${item.name} - $${parseFloat(item.price).toFixed(2)}</span>
-                <span>Qty: ${item.quantity}</span>
-                <button class="remove-btn" data-index="${index}">Remove</button>
-            `;
-                    cartContainer.appendChild(itemDiv);
-                });
+        function displayCart(cart, container) {
+            container.innerHTML = "";
 
-                const totalDiv = document.createElement("div");
-                totalDiv.classList.add("cart-total");
-                totalDiv.innerHTML = `<strong>Total: $${calculateTotal().toFixed(2)}</strong>`;
-                cartContainer.appendChild(totalDiv);
-
-                document.querySelectorAll(".remove-btn").forEach(button => {
-                    button.addEventListener("click", function () {
-                        removeFromCart(this.getAttribute("data-index"));
-                    });
-                });
+            if (cart.length === 0) {
+                container.innerHTML = "<p>Your cart is empty.</p>";
+                return;
             }
 
-            function removeFromCart(index) {
-                cart.splice(index, 1);
-                localStorage.setItem("cart", JSON.stringify(cart));
-                displayCart();
-            }
+            cart.forEach((item, index) => {
+                const itemDiv = createCartItemElement(item, index);
+                container.appendChild(itemDiv);
+            });
 
-            displayCart();
-        });
+            const totalDiv = createTotalElement(calculateTotal(cart));
+            container.appendChild(totalDiv);
 
+            const checkoutButton = createCheckoutButton();
+            container.appendChild(checkoutButton);
+        }
+
+        function createCartItemElement(item, index) {
+            const itemDiv = document.createElement("div");
+            itemDiv.classList.add("cart-item");
+            itemDiv.innerHTML = `
+        <img src="${item.image}" alt="${item.name}" style="width:80px; height:50px;">
+        <span>${item.name} - $${parseFloat(item.price).toFixed(2)}</span>
+        <span>Qty: ${item.quantity}</span>
+        <button class="remove-btn" data-index="${index}">Remove</button>
+    `;
+
+            // Event listener for remove button
+            itemDiv.querySelector(".remove-btn").addEventListener("click", () => {
+                removeFromCart(index);
+            });
+
+            return itemDiv;
+        }
+
+        function createTotalElement(total) {
+            const totalDiv = document.createElement("div");
+            totalDiv.classList.add("cart-total");
+            totalDiv.innerHTML = `<strong>Total: $${total.toFixed(2)}</strong>`;
+            return totalDiv;
+        }
+
+
+        // --- Cart Management Functions ---
+
+        // Function to get the cart data from local storage
+        function getCartFromLocalStorage() {
+            return JSON.parse(localStorage.getItem("cart")) || [];
+        }
+
+        // Function to save the cart data to local storage
+        function saveCartToLocalStorage(cart) {
+            localStorage.setItem("cart", JSON.stringify(cart));
+        }
+
+        // Function to add an item to the cart
         function addToCart(name, price, image) {
-            let cart = JSON.parse(localStorage.getItem("cart")) || [];
-            let existingItem = cart.find(item => item.name === name);
-
+            let cart = getCartFromLocalStorage();
             price = parseFloat(price);
 
+            let existingItem = cart.find(item => item.name === name);
             if (existingItem) {
                 existingItem.quantity += 1;
             } else {
                 cart.push({ name, price, image, quantity: 1 });
             }
 
-            localStorage.setItem("cart", JSON.stringify(cart));
+            saveCartToLocalStorage(cart);
+            displayCart(cart, document.getElementById("cart-container"));
         }
 
+        // Function to remove an item from the cart
+        function removeFromCart(index) {
+            let cart = getCartFromLocalStorage();
+            cart.splice(index, 1);
+            saveCartToLocalStorage(cart);
+            displayCart(cart, document.getElementById("cart-container"));
+        }
+
+        // Function to clear the cart
+        function clearCart() {
+            localStorage.removeItem("cart");
+            displayCart([], document.getElementById("cart-container"));
+        }
+
+        // --- Cart Display Functions ---
+
+        // Function to calculate the total price of items in the cart
+        function calculateTotal(cart) {
+            let total = 0;
+            cart.forEach(item => {
+                if (item && item.price && item.quantity) {
+                    total += parseFloat(item.price) * item.quantity;
+                }
+            });
+            return total;
+        }
+
+        // Function to display the cart items in the container
+        function displayCart(cart, container) {
+            container.innerHTML = "";
+
+            if (cart.length === 0) {
+                container.innerHTML = "<p>Your cart is empty.</p>";
+                return;
+            }
+
+            cart.forEach((item, index) => {
+                const itemDiv = createCartItemElement(item, index);
+                container.appendChild(itemDiv);
+            });
+
+            const totalDiv = createTotalElement(calculateTotal(cart));
+            container.appendChild(totalDiv);
+
+            const checkoutButton = createCheckoutButton();
+            container.appendChild(checkoutButton);
+        }
+
+        // Function to create a cart item HTML element
+        function createCartItemElement(item, index) {
+            const itemDiv = document.createElement("div");
+            itemDiv.classList.add("cart-item");
+            itemDiv.innerHTML = `
+        <img src="${item.image}" alt="${item.name}" style="width:80px; height:50px;">
+        <span>${item.name} - $${parseFloat(item.price).toFixed(2)}</span>
+        <span>Qty: ${item.quantity}</span>
+        <button class="remove-btn" data-index="${index}">Remove</button>
+    `;
+
+            // Event listener for remove button
+            itemDiv.querySelector(".remove-btn").addEventListener("click", () => {
+                removeFromCart(index);
+            });
+
+            return itemDiv;
+        }
+
+        // Function to create the total price HTML element
+        function createTotalElement(total) {
+            const totalDiv = document.createElement("div");
+            totalDiv.classList.add("cart-total");
+            totalDiv.innerHTML = `<strong>Total: $${total.toFixed(2)}</strong>`;
+            return totalDiv;
+        }
+
+        // Function to create the checkout button HTML element
+        function createCheckoutButton() {
+            const checkoutButton = document.createElement("button");
+            checkoutButton.textContent = "Checkout";
+            checkoutButton.addEventListener("click", checkout);
+            return checkoutButton;
+        }
+
+        // --- Checkout Functions ---
+
+        // Function to show the checkout form
+        function showCheckout() {
+            document.getElementById("checkout-form").classList.add("active");
+        }
+
+        // Function to handle the checkout process
+        function checkout() {
+            alert("Checkout clicked! Cart cleared.");
+            clearCart();
+        }
+
+        // Function to submit the order from the checkout form
+        function submiteOrder() {
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const payment = document.getElementById("payment").value;
+
+            if (!name || !email || !payment) {
+                alert("Please fill all required fields.");
+                return;
+            }
+
+            alert(`Thank you for your order, ${name}! Your order has been submitted.`);
+
+            // Clear the cart
+            clearCart();
+
+            // Hide the checkout form
+            document.getElementById("checkout-form").classList.remove("active");
+
+            // Hide the cart (if it's open)
+            if (document.getElementById("cart")) {
+                document.getElementById("cart").classList.remove("active");
+            }
+        }
+
+        // ... (your other JavaScript code) ...
+
+        // Function to handle the checkout process
+        function checkout() {
+            showCheckout(); // Call showCheckout() to display the form
+        }
+
+        // Function to show the checkout form
+        function showCheckout() {
+            document.getElementById("checkout-form").classList.add("active");
+        }
+
+        // ... (your other JavaScript code) ...
 
     </script>
     <script src="./responsive.js"></script>
