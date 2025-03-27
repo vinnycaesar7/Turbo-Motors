@@ -509,3 +509,29 @@ h2 {
 #checkout-form button:last-child:hover {
     background-color: #d1d5db;
 }
+
+/* button */
+.checkout-button {
+    background-color: red;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover Effect */
+.checkout-button:hover {
+    /* background-color: darkred; */
+background-color: #000;
+    color: #ccc;
+    transform: scale(1.05);
+}
+
+/* Click Effect */
+.checkout-button:active {
+    transform: scale(0.95);
+}

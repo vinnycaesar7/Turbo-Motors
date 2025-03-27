@@ -49,18 +49,6 @@
         <div id="cart-container"></div>
     </section>
 
-    <!-- <form>
-        <input type="text" id="name" name="name" required placeholder="Name">
-        <input type="email" id="email" name="email" required placeholder="Email">
-        <select id="payment">
-            <option value="">Select Payment Method</option>
-            <option value="">CRedit Card</option>
-            <option value="">Bank Transfer</option>
-            <option value="">Cash on Delivery</option>
-        </select>
-        <button onclick="submiteOrder()">submite Order</button>
-    </form> -->
-
     <div id="checkout-form">
         <h2>Checkout</h2>
         <label for="name">Name:</label>
@@ -133,122 +121,61 @@
     <script>
         document.addEventListener("DOMContentLoaded", initializeCart);
 
+        // --- 1. Cart Initialization and Storage ---
+
         function initializeCart() {
+            // This function is called when the page loads.
             const cartContainer = document.getElementById("cart-container");
-            let cart = getCartFromLocalStorage();
-            displayCart(cart, cartContainer);
+            let cart = getCartFromLocalStorage(); // Get the cart from storage.
+            displayCart(cart, cartContainer); // Show the cart on the page.
         }
 
         function getCartFromLocalStorage() {
+            // This function gets the cart data from the browser's storage.
             return JSON.parse(localStorage.getItem("cart")) || [];
         }
 
         function saveCartToLocalStorage(cart) {
+            // This function saves the cart data to the browser's storage.
             localStorage.setItem("cart", JSON.stringify(cart));
         }
 
-        function calculateTotal(cart) {
-            let total = 0;
-            cart.forEach(item => {
-                if (item && item.price && item.quantity) {
-                    total += parseFloat(item.price) * item.quantity;
-                }
-            });
-            return total;
-        }
+        // --- 2. Cart Item Management ---
 
-        function displayCart(cart, container) {
-            container.innerHTML = "";
-
-            if (cart.length === 0) {
-                container.innerHTML = "<p>Your cart is empty.</p>";
-                return;
-            }
-
-            cart.forEach((item, index) => {
-                const itemDiv = createCartItemElement(item, index);
-                container.appendChild(itemDiv);
-            });
-
-            const totalDiv = createTotalElement(calculateTotal(cart));
-            container.appendChild(totalDiv);
-
-            const checkoutButton = createCheckoutButton();
-            container.appendChild(checkoutButton);
-        }
-
-        function createCartItemElement(item, index) {
-            const itemDiv = document.createElement("div");
-            itemDiv.classList.add("cart-item");
-            itemDiv.innerHTML = `
-        <img src="${item.image}" alt="${item.name}" style="width:80px; height:50px;">
-        <span>${item.name} - $${parseFloat(item.price).toFixed(2)}</span>
-        <span>Qty: ${item.quantity}</span>
-        <button class="remove-btn" data-index="${index}">Remove</button>
-    `;
-
-            // Event listener for remove button
-            itemDiv.querySelector(".remove-btn").addEventListener("click", () => {
-                removeFromCart(index);
-            });
-
-            return itemDiv;
-        }
-
-        function createTotalElement(total) {
-            const totalDiv = document.createElement("div");
-            totalDiv.classList.add("cart-total");
-            totalDiv.innerHTML = `<strong>Total: $${total.toFixed(2)}</strong>`;
-            return totalDiv;
-        }
-
-
-        // --- Cart Management Functions ---
-
-        // Function to get the cart data from local storage
-        function getCartFromLocalStorage() {
-            return JSON.parse(localStorage.getItem("cart")) || [];
-        }
-
-        // Function to save the cart data to local storage
-        function saveCartToLocalStorage(cart) {
-            localStorage.setItem("cart", JSON.stringify(cart));
-        }
-
-        // Function to add an item to the cart
         function addToCart(name, price, image) {
+            // This function adds an item to the cart.
             let cart = getCartFromLocalStorage();
-            price = parseFloat(price);
+            price = parseFloat(price); // Make sure the price is a number.
 
             let existingItem = cart.find(item => item.name === name);
             if (existingItem) {
-                existingItem.quantity += 1;
+                existingItem.quantity += 1; // If the item is already in the cart, increase the quantity.
             } else {
-                cart.push({ name, price, image, quantity: 1 });
+                cart.push({ name, price, image, quantity: 1 }); // If not, add a new item.
             }
 
             saveCartToLocalStorage(cart);
             displayCart(cart, document.getElementById("cart-container"));
         }
 
-        // Function to remove an item from the cart
         function removeFromCart(index) {
+            // This function removes an item from the cart.
             let cart = getCartFromLocalStorage();
-            cart.splice(index, 1);
+            cart.splice(index, 1); // Remove the item at the given index.
             saveCartToLocalStorage(cart);
             displayCart(cart, document.getElementById("cart-container"));
         }
 
-        // Function to clear the cart
         function clearCart() {
+            // This function clears all items from the cart.
             localStorage.removeItem("cart");
             displayCart([], document.getElementById("cart-container"));
         }
 
-        // --- Cart Display Functions ---
+        // --- 3. Cart Display and Total Calculation ---
 
-        // Function to calculate the total price of items in the cart
         function calculateTotal(cart) {
+            // This function calculates the total price of all items in the cart.
             let total = 0;
             cart.forEach(item => {
                 if (item && item.price && item.quantity) {
@@ -258,9 +185,9 @@
             return total;
         }
 
-        // Function to display the cart items in the container
         function displayCart(cart, container) {
-            container.innerHTML = "";
+            // This function shows the cart items on the page.
+            container.innerHTML = ""; // Clear the container first.
 
             if (cart.length === 0) {
                 container.innerHTML = "<p>Your cart is empty.</p>";
@@ -279,8 +206,8 @@
             container.appendChild(checkoutButton);
         }
 
-        // Function to create a cart item HTML element
         function createCartItemElement(item, index) {
+            // This function creates the HTML for a single cart item.
             const itemDiv = document.createElement("div");
             itemDiv.classList.add("cart-item");
             itemDiv.innerHTML = `
@@ -290,7 +217,6 @@
         <button class="remove-btn" data-index="${index}">Remove</button>
     `;
 
-            // Event listener for remove button
             itemDiv.querySelector(".remove-btn").addEventListener("click", () => {
                 removeFromCart(index);
             });
@@ -298,37 +224,39 @@
             return itemDiv;
         }
 
-        // Function to create the total price HTML element
         function createTotalElement(total) {
+            // This function creates the HTML for the cart total.
             const totalDiv = document.createElement("div");
             totalDiv.classList.add("cart-total");
             totalDiv.innerHTML = `<strong>Total: $${total.toFixed(2)}</strong>`;
             return totalDiv;
         }
 
-        // Function to create the checkout button HTML element
         function createCheckoutButton() {
+            // This function creates the "Checkout" button.
             const checkoutButton = document.createElement("button");
             checkoutButton.textContent = "Checkout";
-            checkoutButton.addEventListener("click", checkout);
+            checkoutButton.classList.add("checkout-button");
+            checkoutButton.addEventListener("click", checkout); // Go to checkout when clicked.
             return checkoutButton;
         }
 
-        // --- Checkout Functions ---
+        document.getElementById("button-container").appendChild(createCheckoutButton());
 
-        // Function to show the checkout form
+        // --- 4. Checkout Process ---
+
+        function checkout() {
+            // This function shows the checkout form.
+            showCheckout();
+        }
+
         function showCheckout() {
+            // This function adds the "active" class to the checkout form to display it.
             document.getElementById("checkout-form").classList.add("active");
         }
 
-        // Function to handle the checkout process
-        function checkout() {
-            alert("Checkout clicked! Cart cleared.");
-            clearCart();
-        }
-
-        // Function to submit the order from the checkout form
         function submiteOrder() {
+            // This function handles the order submission.
             const name = document.getElementById("name").value;
             const email = document.getElementById("email").value;
             const payment = document.getElementById("payment").value;
@@ -339,32 +267,12 @@
             }
 
             alert(`Thank you for your order, ${name}! Your order has been submitted.`);
-
-            // Clear the cart
             clearCart();
-
-            // Hide the checkout form
             document.getElementById("checkout-form").classList.remove("active");
-
-            // Hide the cart (if it's open)
             if (document.getElementById("cart")) {
                 document.getElementById("cart").classList.remove("active");
             }
         }
-
-        // ... (your other JavaScript code) ...
-
-        // Function to handle the checkout process
-        function checkout() {
-            showCheckout(); // Call showCheckout() to display the form
-        }
-
-        // Function to show the checkout form
-        function showCheckout() {
-            document.getElementById("checkout-form").classList.add("active");
-        }
-
-        // ... (your other JavaScript code) ...
 
     </script>
     <script src="./responsive.js"></script>
